@@ -1,0 +1,27 @@
+{
+  "name": "desafio6-websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lautarxtomas/Desafio6-Websockets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lautarxtomas/Desafio6-Websockets/issues"
+  },
+  "homepage": "https://github.com/lautarxtomas/Desafio6-Websockets#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7",
+    "socket.io": "^4.5.2"
+  }
+}
