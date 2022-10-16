@@ -23,14 +23,14 @@ let containerProducts = new apiContainer('products.txt')
 let containerChats = new apiContainer('chat.txt')
 
 
-// opcion A: guardar solo usando los contenedores, sin usar los arrays. Cada vez que llamemos a algun metodo del contenedor hay que usar await porque son todos los metodos async. Tambien tiene que ser async el message/product, como aca abajo.
+// opcion A: guardar solo usando los contenedores, sin usar los arrays. Hay que poner await antes de cada metodo del contenedor (creo). Tambien tiene que ser async el message/product, como aca abajo.
 io.on('connection', async (socket) => {
     console.log("Nuevo cliente conectado")
     socket.emit('chats', await containerChats.getAll()) // se emiten TODOS los chats al NUEVO CLIENTE (primer parametro nombre del socket, segundo parametro el array de chats)
     socket.emit('products', await containerProducts.getAll()) // se emiten TODOS los productos al NUEVO CLIENTE
 
     socket.on('new-message', async message => {
-        io.sockets.emit('chats', containerChats.getAll()); // se emiten TODOS los chats a TODOS los clientes conectados
+        io.sockets.emit('chats', await containerChats.getAll()); // se emiten TODOS los chats a TODOS los clientes conectados
         if (containerChats.getLength() == 0){
             await containerChats.save(chats)
         }
@@ -39,7 +39,7 @@ io.on('connection', async (socket) => {
         }
     })
     socket.on('new-product', async product => {
-        io.sockets.emit('products', containerProducts.getAll()); // se emiten TODOS los productos a TODOS los clientes conectados
+        io.sockets.emit('products', await containerProducts.getAll()); // se emiten TODOS los productos a TODOS los clientes conectados
         if (containerProducts.getLength() == 0){
             await containerProducts.save(products)
         }

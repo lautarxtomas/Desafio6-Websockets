@@ -1,1 +1,1 @@
-[{"name":"Camiseta de boca","price":"14000","id":1}]
+[{"name":"Camiseta de boca","price":"14000","id":1},{"name":"asfasf","price":"5345","id":2},{"name":"dfgdfg","price":"46456","id":3},{"name":"river","price":"3","id":4},{"name":"anashe","price":"30","id":5},{"name":"holaaaaa","price":"3666","id":6}]
